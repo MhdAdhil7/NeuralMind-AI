@@ -62,6 +62,26 @@ NeuralMind AI combines semantic search, vector embeddings, and a locally running
 
 
 
+## 🧩 System Architecture
+
+```mermaid
+flowchart TD
+    A[PDF Document] --> B[PyMuPDF: Text Extraction]
+    B --> C[Text Chunking]
+    C --> D[Sentence Transformers: Embeddings]
+    D --> E[(ChromaDB Vector Store)]
+
+    F[User Question] --> G[Question Embedding]
+    G --> H[Semantic Similarity Search]
+    E --> H
+    H --> I[Relevant Text Passages]
+    I --> J[Ollama: Llama 3]
+    J --> K[Answer with Source References]
+
+    L[Streamlit Interface] --> F
+    K --> L
+```
+
 \## 🏗️ How It Works
 
 
