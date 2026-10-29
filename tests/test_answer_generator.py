@@ -134,3 +134,29 @@ def test_generate_answer_when_evidence_check_fails():
         "Please try again."
     )
     mock_chat.assert_not_called()
+
+def test_generate_answer_when_answer_generation_fails():
+    search_results = [
+        {
+            "chunk": "Python extracts text from PDF files.",
+            "page": 1,
+            "score": 0.8
+        }
+    ]
+
+    with patch(
+        "src.answer_generator.check_evidence",
+        return_value=True
+    ), patch(
+        "src.answer_generator.ollama.chat",
+        side_effect=RuntimeError("Ollama is unavailable")
+    ):
+        answer = generate_answer(
+            "What extracts text from PDF files?",
+            search_results
+        )
+
+    assert answer == (
+        "I couldn't generate an answer right now. "
+        "Please check that Ollama is running and try again."
+    )

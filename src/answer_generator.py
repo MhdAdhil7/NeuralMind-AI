@@ -106,14 +106,22 @@ User's question:
 Answer:
 """
 
-    response = ollama.chat(
-        model="llama3",
-        messages=[
-            {
-                "role": "user",
-                "content": prompt
-            }
-        ]
-    )
+    try:
+        response = ollama.chat(
+            model="llama3",
+            messages=[
+                {
+                    "role": "user",
+                    "content": prompt
+                }
+            ]
+        )
 
-    return response["message"]["content"].strip()
+        return response["message"]["content"].strip()
+
+    except Exception:
+        return (
+            "I couldn't generate an answer right now. "
+            "Please check that Ollama is running and try again."
+        )
+
