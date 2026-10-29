@@ -62,6 +62,23 @@ NeuralMind AI combines semantic search, vector embeddings, and a locally running
 
 
 
+## 📸 Application Screenshots
+
+### Home Interface
+![NeuralMind AI home interface](screenshots/neuralmind-home.png)
+
+### PDF Upload
+![PDF upload interface](screenshots/neuralmind-upload.png)
+
+### Asking Questions
+![Question interface](screenshots/neuralmind-question.png)
+
+### AI-Generated Answer
+![Answer generated from the document](screenshots/neuralmind-answer.png)
+
+### Retrieved Sources
+![Retrieved document sources](screenshots/neuralmind-sources.png)
+
 ## 🧩 System Architecture
 
 ```mermaid
